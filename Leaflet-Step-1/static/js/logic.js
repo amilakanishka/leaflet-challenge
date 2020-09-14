@@ -4,7 +4,7 @@ var query = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.
 
 // Perform a GET request to the query URL
 d3.json(query).then(function(data) {
-  // Once we get a response, send the data.features object to the createFeatures function
+  // Once we get a response, send the data.features object to the createFeatures
   createFeatures(data.features);
 });
 
@@ -14,7 +14,8 @@ function createFeatures(earthquakeData) {
   function onEachFeature(feature, layer) {
     layer.bindPopup("<h3>" + feature.properties.place +
       "</h3><hr><p>" + new Date(feature.properties.time) + "</p>" +
-      "</h3><hr><p>Magnitude: " + feature.properties.mag + "</p>");
+      "</h3><hr><p>Magnitude: " + feature.properties.mag + "</p>" +
+      "</h3><hr><p>tsunami: " + feature.properties.tsunami + "</p>");
   }
 
   
@@ -33,7 +34,7 @@ function createFeatures(earthquakeData) {
       var geojsonMarkerOptions = {
         radius: 3*feature.properties.mag,
         fillColor: color,
-        color: "black",
+        color: "red",
         weight: 1,
         opacity: 0.5,
         fillOpacity: 0.8
