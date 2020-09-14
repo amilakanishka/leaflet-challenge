@@ -9,7 +9,6 @@ d3.json(query).then(function(data) {
 });
 
 function createFeatures(earthquakeData) {
-console.log(earthquakeData);
 
   // Give each feature a popup describing the place and time of the earthquake
   function onEachFeature(feature, layer) {
